@@ -32,6 +32,7 @@ class Excursions(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     price =  models.IntegerField(default=0)
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.name} is {self.price}"

@@ -6,6 +6,13 @@
 
 {% block content%}
 <h1>All Destinations</h1>
+<style>
+     h1{
+                font-size: 40px;
+                text-align: center;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     }
+</style>
 
 {% for destination in destinations %}
 <a href="/destinations/{{destination.id}}">

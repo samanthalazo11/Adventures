@@ -1,5 +1,24 @@
 {% extends 'base.html'%}
 
+
 {% block content %}
-    <h1>hello</h1>
+    <h1 style="text-align:center;" ;>Welcome, Adventure Awaits! </h1>
+        <h2 style="text-align:center;" >Please Log in or SignUp to Start </h2>
+
+        <a href="{% url 'login' %}" class="btn"  style="text-align:center;">Login</a>
+
+        <a href="{% url 'signup' %}" class="btn" style="align-items:center;" >Signup</a>
+        <style>
+
+            h2{
+                font-size: 20px;
+                font-weight: 300;
+
+            }
+            h1{
+                font-size: 50px;
+                font-style: italic;
+            }
+        </style>
+
 {% endblock %}
