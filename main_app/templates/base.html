@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {% block title%}
+    <title>Adventure Awaits</title>
+    {% endblock %}
+</head>
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper   red lighten-3">
+                <a class="left brand-logo" href="/">Adventure Awaits</a>
+                <ul class="right">
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'destinations_index'%}">Destinations</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'destinations_create'%}">Add Destination</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Login</a>
+                    </li><li>
+                        <a href="{% url 'signup' %}">Signup</a>
+                    </li>
+                    {% endif %}
+
+
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+    <main class="container ">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="page-footer   red lighten-3">
+        <p>Copyright &copy; All Rights Reserved Cat Collector 2023</p>
+    </footer>
+
+</body>
+</html>

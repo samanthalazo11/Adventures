@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block title %}
+<title>All Destinations </title>
+{% endblock %}
+
+{% block content%}
+<h1>All Destinations</h1>
+
+{% for destination in destinations %}
+<a href="/destinations/{{destination.id}}">
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{destination.location}}</span>
+        <!-- <p>Dates:  {{destination.dates}}</p>
+        <p>Flight:  {{destination.flight}}</p>
+        <p>Hotel: {{destination.hotel}}</p>
+        <p>Notes: {{destination.notes}}</p> -->
+    </div>
+
+</div>
+</a>
+
+{% endfor %}
+
+{% endblock %}

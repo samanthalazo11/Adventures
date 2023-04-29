@@ -1,0 +1,92 @@
+{% extends 'base.html'%}
+
+{% block title %}
+<title>Destinations Detail </title>
+{% endblock %}
+
+{% block content%}
+<h1>Destinations</h1>
+
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{destination.location}}</span>
+                <p>Dates:  {{destination.dates}}</p>
+                <p>Flight:  {{destination.flights}}</p>
+                <p>Hotel: {{destination.hotel}}</p>
+                <p>Notes: {{destination.notes}}</p>
+            </div>
+
+            <div class="card-action">
+                <a href="{% url 'destination_update' destination.id %}">Update</a>
+                <a href="{% url 'destination_delete' destination.id %}">Delete</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col s6">
+        <form action="{% url 'restauraunts' destination.id %}" method="POST">
+            {% csrf_token %}
+            {{restauraunts_form.as_p }}
+            <input type="submit" value="Add Restauraunt" class="btn blue">
+
+
+        </form>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for restauraunts in destination.restauraunts_set.all %}
+                <tr>
+                    <td>{{restauraunts.name}}</td>
+                    <td>{{restauraunts.location}}</td>
+                    <td>{{restauraunts.description}}</td>
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <div class="col s6">
+        <form action="{% url 'excursions' destination.id %}" method="POST">
+            {% csrf_token %}
+            {{excursions_form.as_p }}
+            <input type="submit" value="Add Excursion" class="btn blue">
+
+
+        </form>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for restauraunts in destination.restauraunts_set.all %}
+                <tr>
+                    <td>{{excursions.name}}</td>
+                    <td>{{excursions.price}}</td>
+                    <td>{{excursions.description}}</td>
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
