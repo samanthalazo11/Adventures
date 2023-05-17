@@ -17,6 +17,7 @@ Adventures is a website designed for you to plan or save eveerything you worked 
 
 # Getting Started 
 
+https://adventures.herokuapp.com/
 Create an account or login 
 
 # Future Enhancements 
